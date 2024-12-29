@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\HomeContorller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeContorller::class, 'index'])->name('home');
+Route::get('/rooms', [RoomController::class, 'index'])->name('rooms');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -23,7 +23,7 @@ class RoomFactory extends Factory
             'description' => fake()->paragraph(),
             'price' => fake()->randomFloat(2, 50, 500),
             'capacity' => fake()->numberBetween(1, 10),
-            'image' => fake()->imageUrl(),
+            'image' => fake()->imageUrl(640, 480, 'house', true, 'villa'),
         ];
     }
 }
