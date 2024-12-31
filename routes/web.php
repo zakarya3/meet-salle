@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeContorller::class, 'index'])->name('home');
 Route::get('/rooms', [RoomController::class, 'index'])->name('rooms');
+Route::get('/rooms/{id}', [RoomController::class, 'findOne'])->name('rooms.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

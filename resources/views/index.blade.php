@@ -49,8 +49,8 @@
                         <div class="about_thumb">
                             <img src="{{ $item->image }}" alt="">
                         </div>
-                        <h3>{{ $item->name }}</h3>
-                        <p>{{ $item->description }}</p>
+                        <h3>{{ Str::limit($item->name, 30,'...') }}</h3>
+                        <p>{{ Str::limit($item->description, 80, '...') }}</p>
                         <a href="#" class="book_now">Réserver maintenant</a>
                     </div>
                 </div>
