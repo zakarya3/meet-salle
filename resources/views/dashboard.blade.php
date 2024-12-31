@@ -42,7 +42,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ number_format($room->price) }} XAF</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="flex justify-center space-x-3">
-                                            <a href="" 
+                                            <a href="{{ route('dashboard.room.edit', $room->id) }}" 
                                                class="text-indigo-600 hover:text-indigo-900">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -50,7 +50,7 @@
                                                 </svg>
                                             </a>
                                             
-                                            <form action="" 
+                                            <form action="{{ route('dashboard.room.destroy', $room->id) }}" 
                                                   method="POST" 
                                                   onsubmit="return confirm('Are you sure?')"
                                                   class="inline">
