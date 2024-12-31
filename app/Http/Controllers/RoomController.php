@@ -12,6 +12,11 @@ class RoomController extends Controller
         return view('rooms', compact('rooms'));
     }
 
+    public function create(Request $request) {
+        $room = Room::create($request->all());
+        // return redirect()->route('')->with('success','');
+    }
+
     public function findOne($id) {
         $room = Room::find($id);
         return view('room', compact('room'));
