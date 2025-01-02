@@ -43,15 +43,17 @@ class DashboardController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'capacity' => 'required|integer',
-        ]);
 
         $room = Room::find($id);
         $room->update([
             'name' => $request->name,
             'capacity' => $request->capacity,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $request->image,
+            'has_projector' => $request->has_projector,
+            'has_wifi' => $request->has_wifi,
+            'has_ac' => $request->has_ac,
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Room updated successfully');
