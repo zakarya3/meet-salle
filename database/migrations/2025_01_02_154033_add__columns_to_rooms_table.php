@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rooms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->integer('capacity');
-            $table->string('image');
+        Schema::table('rooms', function (Blueprint $table) {
             $table->boolean('has_projector')->default(false);
             $table->boolean('has_wifi')->default(false);
             $table->boolean('has_ac')->default(false);
-            $table->timestamps();
         });
     }
 
@@ -30,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rooms');
+        Schema::table('rooms', function (Blueprint $table) {
+            //
+        });
     }
 };
