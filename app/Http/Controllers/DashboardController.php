@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index()
     {
         $rooms = Room::paginate(10);
-        $reservations = Reservation::all();
+        $reservations = Reservation::paginate(10);
         return view('dashboard', compact('rooms', 'reservations'));
     }
 
@@ -63,6 +63,6 @@ class DashboardController extends Controller
     {
         $room = Room::find($id);
         $room->delete();
-        return redirect()->route('dashboard')->with('success', 'Room deleted successfully');;
+        return redirect()->route('dashboard')->with('success', 'Room deleted successfully');
     }
 }

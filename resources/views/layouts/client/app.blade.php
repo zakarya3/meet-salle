@@ -59,24 +59,18 @@
                         </div>
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
-                                <div class="socail_links">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            @if (Auth::check())
+                                                <li>
+                                                    <a href="/dashboard">Dashboard</a>
+                                                </li>
+                                            @else
+                                                <li><a href="/login">Login</a></li>
+                                            @endif
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +82,8 @@
             </div>
         </div>
     </header>
-     <!-- slider_area_start -->
-     <div class="slider_area">
+    <!-- slider_area_start -->
+    <div class="slider_area">
         <div class="slider_active owl-carousel">
             <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
                 <div class="container">
@@ -203,8 +197,13 @@
                     <div class="col-xl-8 col-md-7 col-lg-9">
                         <p class="copy_right">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i
+                                class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-xl-4 col-md-5 col-lg-3">
                         <div class="socail_links">
@@ -263,14 +262,14 @@
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
-             rightIcon: '<span class="fa fa-caret-down"></span>'
-         }
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
         });
         $('#datepicker2').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
-             rightIcon: '<span class="fa fa-caret-down"></span>'
-         }
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
 
         });
     </script>

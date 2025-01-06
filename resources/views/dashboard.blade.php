@@ -92,12 +92,75 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-semibold">Reservations</h3>
-                    <ul>
+                </div>
+                <table class="min-w-full divide-y divide-gray-200 w-full">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                Salle ID</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                La date</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                Durée</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                Client</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                Email</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
+                                Téléphone</th>
+                            <th class="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($reservations as $reservation)
-                            <li>{{ $reservation->room->name }} - {{ $reservation->date }} - {{ $reservation->time }}
-                            </li>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->room_id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->date }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->duration }} heures</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->client_name }} </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $reservation->client_email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->client_phone }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                    <div class="flex justify-center space-x-3">
+                                        @if ($reservation->status == 'pending')
+                                            <form
+                                                action="{{ route('dashboard.reservation.updateStatus', ['id' => $reservation->id, 'status' => 'approved']) }}"
+                                                method="POST" class="inline">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit"
+                                                    class="px-4 py-2 text-white hover:bg-indigo-700 rounded-md shadow-md"
+                                                    style="background-color: #00ff00c9; margin: 0 1rem;">
+                                                    Accepter
+                                                </button>
+                                            </form>
+                                            <form
+                                                action="{{ route('dashboard.reservation.updateStatus', ['id' => $reservation->id, 'status' => 'rejected']) }}"
+                                                method="POST" class="inline">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit"
+                                                    class="px-4 py-2 text-white hover:bg-indigo-700 rounded-md shadow-md"
+                                                    style="background-color: #ff0000;">
+                                                    Rejeter
+                                                </button>
+                                            </form>
+                                        @elseif ($reservation->status == 'approved')
+                                            <span class="text-green-600">Accepté</span>
+                                        @elseif ($reservation->status == 'rejected')
+                                            <span class="text-red-600">Rejeté</span>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
-                    </ul>
+                    </tbody>
+                </table>
+
+                <div class="mt-4">
+                    {{ $rooms->links('pagination::tailwind') }}
                 </div>
             </div>
         </div>
