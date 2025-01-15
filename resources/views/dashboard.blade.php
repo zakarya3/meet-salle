@@ -46,7 +46,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $room->name }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $room->capacity }} people</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($room->price) }} XAF</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($room->price) }} DH</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="flex justify-center space-x-3">
                                             <a href="{{ route('dashboard.room.edit', $room->id) }}"
