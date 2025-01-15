@@ -15,8 +15,8 @@ Before you begin, ensure you have the following installed on your system:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/zakarya3/meet-salle.git
+cd meet-salle
 ```
 
 ### 2. Install Dependencies
