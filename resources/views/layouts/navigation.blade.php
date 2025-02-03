@@ -38,6 +38,13 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
+                        @can('is-admin')
+                        <x-dropdown-link :href="route('add-users')">
+                            {{ __('Add Users') }}
+                        </x-dropdown-link>
+                        @endcan
+
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

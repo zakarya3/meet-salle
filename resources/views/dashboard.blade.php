@@ -59,6 +59,7 @@
                                                 </svg>
                                             </a>
 
+                                            @can('is-admin')
                                             <form action="{{ route('dashboard.room.destroy', $room->id) }}"
                                                 method="POST" onsubmit="return confirm('Are you sure?')"
                                                 class="inline">
@@ -73,6 +74,7 @@
                                                     </svg>
                                                 </button>
                                             </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
@@ -87,6 +89,7 @@
             </div>
         </div>
     </div>
+    @can('is-admin')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -97,7 +100,7 @@
                     <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
-                                Salle ID</th>
+                                Salle Name</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
                                 La date</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
@@ -115,7 +118,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($reservations as $reservation)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->room_id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->rooms->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->date }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->duration }} heures</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->client_name }} </td>
@@ -165,4 +168,5 @@
             </div>
         </div>
     </div>
+    @endcan
 </x-app-layout>

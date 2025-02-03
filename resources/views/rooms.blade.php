@@ -10,6 +10,16 @@
                     </div>
                 </div>
             </div>
+            <form action="{{route('search')}}" method="get">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="search-container">
+                      <input name="keyword" type="text" class="form-control search-input" placeholder="Search...">
+                      <i class="fas fa-search search-icon"></i>
+                    </div>
+                  </div>
+              </div>
+            </form>
             <div class="row">
                 @foreach ($rooms as $item)
                 <div class="col-xl-4 col-md-4">
