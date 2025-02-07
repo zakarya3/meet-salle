@@ -51,7 +51,7 @@
                         </div>
                         <h3>{{ Str::limit($item->name, 30,'...') }}</h3>
                         <p>{{ Str::limit($item->description, 80, '...') }}</p>
-                        <a href="#" class="book_now">Réserver maintenant</a>
+                        <a href="{{ route('rooms.show', $item->id) }}" class="book_now">Réserver maintenant</a>
                     </div>
                 </div>
                 @endforeach
@@ -112,7 +112,7 @@
                             <span>{{ $item->price }}MAD/jour</span>
                             <h3>{{ $item->capacity }} bureau</h3>
                         </div>
-                        <a href="#" class="line-button">Réserver maintenant</a>
+                        <a href="{{ route('rooms.show', $item->id) }}" class="line-button">Réserver maintenant</a>
                     </div>
                 </div>
             </div>
